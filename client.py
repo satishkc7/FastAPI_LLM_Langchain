@@ -2,20 +2,19 @@ import requests
 import streamlit as st
 
 def get_openai_response(input_text):
-    response = requests.post("http://localhost:8000/one_para/invoke",
+    response = requests.post("http://localhost:8000/onepara/invoke",
     json={'input':{'topic':input_text}})
-
-    return response.json()['output']
+    return response.json()['output']['content']
 
 def get_ollama_response(input_text):
-    response = requests.post("http://localhost:8000/two_para/invoke",
+    response = requests.post("http://localhost:8000/twopara/invoke",
     json={'input':{'topic':input_text}})
 
     return response.json()['output']
 
 st.title("FASTAPI LangServe")
 input_text1= st.text_input("Write about ")
-input_text2=st.text_input("Explain this ")
+input_text2= st.text_input("Compare the same topic with local LLM model ")
 
 
 if input_text1:

@@ -30,20 +30,20 @@ add_routes(
 model1 = ChatOpenAI()
 
 ##second model Ollama
-model2 = Ollama(model = "llama2")
+model2 = Ollama(model = "Mistral")
 prompt1 = ChatPromptTemplate.from_template("Write me something about {topic} in a paragraph")
 prompt2 = ChatPromptTemplate.from_template("Write me something about {topic} in two paragraph and the second paragraph only contains two sentences")
 
 add_routes(
     app,
     prompt1|model1,
-    path = "/one_para"
+    path = "/onepara"
 )
 
 add_routes(
     app,
     prompt2|model2,
-    path = "/two_para"
+    path = "/twopara"
 )
 
 if __name__ == "__main__":

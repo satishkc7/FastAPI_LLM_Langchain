@@ -16,3 +16,4 @@ langchainhub
 groq
 langchain-groq
 sentence_transformers
+sse_starlette
